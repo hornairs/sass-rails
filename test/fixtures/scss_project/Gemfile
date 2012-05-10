@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', "~> 4.0.0.beta"
+gem 'rails', "~> 3.0"
 gem 'sqlite3'
 
 # Asset template engines
-gem 'sass-rails', :path => File.expand_path('../../../..', __FILE__)
+gem 'sprockets-rails', '0.1.0.threeoh'
+gem 'sass-rails', '0.1.0.threeoh', :path => File.expand_path('../../../..', __FILE__)

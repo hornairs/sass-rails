@@ -8,16 +8,16 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["wycats", "chriseppstein"]
   s.email       = ["wycats@gmail.com", "chris@eppsteins.net"]
-  s.homepage    = "https://github.com/rails/sass-rails"
+  s.homepage    = "https://github.com/hornairs/sass-rails"
   s.summary     = %q{Sass adapter for the Rails asset pipeline.}
   s.description = %q{Sass adapter for the Rails asset pipeline.}
 
   s.rubyforge_project = "sass-rails"
 
   s.add_runtime_dependency 'sass',            '>= 3.1.10'
-  s.add_runtime_dependency 'railties',        '>= 4.0.0.beta', '< 5.0'
+  s.add_runtime_dependency 'railties',        '~> 3.0'
   s.add_runtime_dependency 'tilt',            '~> 1.3'
-  s.add_runtime_dependency 'sprockets-rails', '~> 1.0'
+  s.add_runtime_dependency 'sprockets-rails', '0.1.0.threeoh'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

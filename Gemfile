@@ -3,9 +3,8 @@ source "http://rubygems.org"
 # Specify your gem's dependencies in sass-rails.gemspec
 gemspec
 
-# Track Rails master
-gem "rails", :git => 'https://github.com/rails/rails.git'
-gem "sprockets-rails", :git => "git://github.com/rails/sprockets-rails.git"
+gem "rails"
+gem "sprockets-rails", :git => "git://github.com/hornairs/sprockets-rails.git"
 
 gem "sqlite3"
 
