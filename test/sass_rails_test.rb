@@ -6,38 +6,6 @@ class SassRailsTest < Sass::Rails::TestCase
     assert_kind_of Class, Sass::Rails::CssCompressor
     assert_kind_of Class, Sass::Rails::Railtie
   end
-  test "scss files are generated during scaffold generation of scss projects" do
-    within_rails_app "scss_project" do
-      generate_scaffold
-      assert_file_exists "app/assets/stylesheets/foos.css.scss"
-      assert_file_exists "app/assets/stylesheets/scaffolds.css.scss"
-      assert_not_output(/conflict/)
-    end
-  end
-  test "sass files are generated during scaffold generation of sass projects" do
-    within_rails_app "sass_project" do
-      generate_scaffold
-      assert_file_exists "app/assets/stylesheets/foos.css.sass"
-      assert_file_exists "app/assets/stylesheets/scaffolds.css.sass"
-      assert_not_output(/conflict/)
-    end
-  end
-  test "scss files are generated during scaffold generation of a engine project" do
-    within_rails_app "engine_project" do
-      generate_scaffold
-      assert_file_exists "app/assets/stylesheets/engine_project/foos.css.scss"
-      assert_file_exists "app/assets/stylesheets/scaffolds.css.scss"
-      assert_not_output(/conflict/)
-    end
-  end
-  test "sass files are generated during scaffold generation of a engine project, if is called with --stylesheet-engine=sass" do
-    within_rails_app "engine_project" do
-      generate_scaffold "--stylesheet-engine=sass"
-      assert_file_exists "app/assets/stylesheets/engine_project/foos.css.sass"
-      assert_file_exists "app/assets/stylesheets/scaffolds.css.sass"
-      assert_not_output(/conflict/)
-    end
-  end
   # DISABLED because we've removed the feature for now.
   # test "scss template has correct dasherized css class for namespaced controllers" do
   #   within_rails_app "scss_project" do
@@ -102,9 +70,5 @@ div {
   color: red;
 }
 CSS
-  end
-
-  def generate_scaffold(args = nil)
-    runcmd "bundle exec rails generate scaffold foo #{args}"
   end
 end
