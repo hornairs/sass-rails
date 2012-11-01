@@ -32,18 +32,17 @@ module Sass::Rails
 
     config.before_initialize do |app|
       require 'sass'
-
-      if app.config.assets.enabled
-        require 'sprockets'
-        Sprockets::Engines #force autoloading
-        Sprockets.register_engine '.sass', Sass::Rails::SassTemplate
-        Sprockets.register_engine '.scss', Sass::Rails::ScssTemplate
-      end
+      require 'sprockets'
     end
 
     # Remove the sass middleware if it gets inadvertently enabled by applications.
     config.after_initialize do |app|
       app.config.middleware.delete(Sass::Plugin::Rack) if defined?(Sass::Plugin::Rack)
+
+      if app.config.assets.enabled
+        app.assets.register_engine '.sass', Sass::Rails::SassTemplate
+        app.assets.register_engine '.scss', Sass::Rails::ScssTemplate
+      end
     end
 
     initializer :setup_sass, :group => :all do |app|
