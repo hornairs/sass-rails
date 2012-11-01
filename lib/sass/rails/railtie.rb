@@ -39,7 +39,7 @@ module Sass::Rails
     config.after_initialize do |app|
       app.config.middleware.delete(Sass::Plugin::Rack) if defined?(Sass::Plugin::Rack)
 
-      if app.config.assets.enabled
+      if app.config.assets.enabled && app.config.assets.compile
         app.assets.register_engine '.sass', Sass::Rails::SassTemplate
         app.assets.register_engine '.scss', Sass::Rails::ScssTemplate
       end
